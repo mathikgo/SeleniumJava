@@ -1,0 +1,1751 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			ExtentReports Library 2.41.1 | http://relevantcodes.com/extentreports-for-selenium/ | https://github.com/anshooarora/
+			Copyright (c) 2015, Anshoo Arora (Relevant Codes) | Copyrights licensed under the New BSD License | http://opensource.org/licenses/BSD-3-Clause
+			Documentation: http://extentreports.relevantcodes.com 
+		-->
+
+		<meta charset='UTF-8' /> 
+		<meta name='description' content='ExtentReports (by Anshoo Arora) is a reporting library for automation testing for .NET and Java. It creates detailed and beautiful HTML reports for modern browsers. ExtentReports shows test and step summary along with dashboards, system and environment details for quick analysis of your tests.' />
+		<meta name='robots' content='noodp, noydir' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<meta name='extentx' id='extentx' content='' />
+		
+		<title>
+				TestLeaf Selenium Automation Project
+		</title>
+		
+		
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.css' type='text/css' rel='stylesheet' />
+		
+		<style>
+				
+      
+        
+      
+    
+		</style>
+	</head>
+	
+	
+	<body class='extent default standard hide-overflow'>
+		<!-- nav -->
+		<nav>
+			<div class='logo-container blue darken-2'>
+				<a class='logo-content' href='http://extentreports.relevantcodes.com'>
+					<span>ExtentReports</span>
+				</a>
+				<a href='#' data-activates='slide-out' class='button-collapse hide-on-large-only'><i class='mdi-navigation-apps'></i></a>
+			</div>
+			<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+				<li class='analysis waves-effect active'><a href='#!' class='test-view' onclick="_updateCurrentStage(0)"><i class='mdi-action-dashboard'></i>Test Details</a></li>
+					<li class='analysis waves-effect'><a href='#!' class='categories-view' onclick="_updateCurrentStage(1)"><i class='mdi-maps-local-offer'></i>Categories</a></li>
+				<li class='analysis waves-effect'>
+					<a href='#!' onclick="_updateCurrentStage(-1)" class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a>
+				</li>
+			</ul>
+			<span class='report-name'>TestLeaf Selenium </span> <span class='report-headline'>POM Test Automation Report</span>
+			<ul class='right hide-on-med-and-down nav-right'>
+				<li class='theme-selector' alt='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");' title='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");'>
+					<i class='mdi-hardware-desktop-windows'></i>
+				</li>
+				<li>
+					<span class='suite-started-time'>08-09-2017 17:35:43</span>
+				</li>
+				<li>
+					<span>v2.41.1</span>
+				</li>
+			</ul>
+		</nav>
+		<!-- /nav -->
+		
+		<!-- container -->
+		<div class='container'>
+			
+			<!-- dashboard -->
+			<div id='dashboard-view' class='row'>
+				<div class='time-totals'>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-tests'> 
+							<span class='panel-name'>Total Tests</span> 
+							<span class='total-tests'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-steps'> 
+							<span class='panel-name'>Total Steps</span> 
+							<span class='total-steps'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-current'> 
+							<span class='panel-name'>Total Time Taken (Current Run)</span> 
+							<span class='suite-total-time-current-value panel-lead'>17606208h 48m 0s+860ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-overall'> 
+							<span class='panel-name'>Total Time Taken (Overall)</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 13m 802s+414ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-start-time'>
+						<div class='card accent green-accent'> 
+							<span class='panel-name'>Start</span> 
+							<span class='panel-lead suite-started-time'>09-03-0009 16:47:43</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-end-time'>
+						<div class='card accent pink-accent'> 
+							<span class='panel-name'>End</span> 
+							<span class='panel-lead suite-ended-time'>08-09-2017 17:35:43</span> 
+						</div> 
+					</div>
+				</div>
+				<div class='charts'>
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Tests View</span>
+							</div> 
+							<div class='panel-setting modal-trigger test-count-setting right'>
+								<a href='#test-count-setting'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='test-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-pass-count weight-normal'></span> test(s) passed</span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-fail-count weight-normal'></span> test(s) failed, <span class='t-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div> 
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Steps View</span>
+							</div> 
+							<div class='panel-setting modal-trigger step-status-filter right'>
+								<a href='#step-status-filter'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='step-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-pass-count weight-normal'></span> step(s) passed </span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-fail-count weight-normal'></span> step(s) failed, <span class='s-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div>
+					<div class='col s12 m12 l4 fh'> 
+						<div class='card-panel'> 
+							<span class='panel-name'>Pass Percentage</span> 
+							<span class='pass-percentage panel-lead'></span> 
+							<div class='progress light-blue lighten-3'> 
+								<div class='determinate light-blue'></div> 
+							</div> 
+						</div> 
+					</div>
+				</div>
+				<div class='system-view'>
+					<div class='col l4 m12 s12'>
+						<div class='card-panel'>
+							<span class='label info outline right'>Environment</span>
+							<table>
+								<thead>
+									<tr>
+										<th>Param</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td>User Name</td>
+											<td>Nyla jannath</td>
+										</tr>
+										<tr>
+											<td>OS</td>
+											<td>Windows 8.1</td>
+										</tr>
+										<tr>
+											<td>Java Version</td>
+											<td>1.8.0</td>
+										</tr>
+										<tr>
+											<td>Host Name</td>
+											<td>DESKTOP-T2B4Q0J</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+					<div class='category-summary-view'>
+						<div class='col l4 m6 s12'>
+							<div class='card-panel'>
+								<span class='label info outline right'>Categories</span>
+								<table>
+									<thead>
+										<tr>
+											<th>Name</th>
+										</tr>
+									</thead>
+									<tbody>
+											<tr>
+												<td>
+													Smoke
+												</td>
+											</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+			</div>
+			<!-- /dashboard -->
+			
+			<!-- tests -->
+			<div id='test-view' class='row _addedTable'>
+				<div class='col _addedCell1'>
+					<div class='contents'>
+						<div class='card-panel heading'>
+							<h5>Tests</h5>
+						</div>
+						<div class='card-panel filters'>
+							<div>
+								<a class='dropdown-button btn-floating btn-small waves-effect waves-light grey tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+									<i class='mdi-action-reorder'></i>
+								</a>
+								<ul id='tests-toggle' class='dropdown-content'>
+									<li class='pass'><a href='#!'>Pass</a></li>
+									<li class='fail'><a href='#!'>Fail</a></li>
+									<li class='skip'><a href='#!'>Skip</a></li>
+										<li class='unknown'><a href='#!'>Unknown</a></li>
+									<li class='divider'></li>
+									<li class='clear'><a href='#!'>Clear Filters</a></li>
+								</ul>
+							</div>
+								<div>
+									<a class='dropdown-button btn-floating btn-small waves-effect waves-light grey category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+										<i class='mdi-maps-local-offer'></i>
+									</a>
+									<ul id='category-toggle' class='dropdown-content'>
+											<li class='Smoke'><a href='#!'>Smoke</a></li>
+										<li class='divider'></li>
+										<li class='clear'><a href='#!'>Clear Filters</a></li>
+									</ul>
+								</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+									<i class='mdi-navigation-close'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='enableDashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+									<i class='mdi-action-track-changes'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light blue enabled' id='refreshCharts' alt='Refresh Charts on Filters' title='Refresh Charts on Filters'>
+									<i class='mdi-navigation-refresh'></i>
+								</a>
+							</div>
+							<div class='search' alt='Search Tests' title='Search Tests'>
+								<div class='input-field left'>
+									<input id='searchTests' type='text' class='validate' placeholder='Search Tests...'>
+								</div>
+								<a href="#" class='btn-floating btn-small waves-effect waves-light grey'>
+									<i class='mdi-action-search'></i>
+								</a>
+							</div>
+						</div>
+						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
+							<div class='wrapper'>
+								<ul id='test-collection' class='test-collection'>
+										<li class='collection-item test displayed active unknown ' extentid='db972d6c-e38f-43e6-88a0-8ab5d9536b46'>
+											<div class='test-head'>
+												<span class='test-name'>TC001_Create Lead </span>
+												<span class='test-status label right outline capitalize unknown'>unknown</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>09-03-0009 16:47:43</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>10-03-0014 17:21:53</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>43848h 34m 10s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and Create new Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='bb0c062b-87c4-4042-8a4d-d2690251c722'>
+											<div class='test-head'>
+												<span class='test-name'>TC002_Edit Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>09-03-0009 16:47:43</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>09-03-0009 16:48:06</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 23s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and update company name in Edit Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/154349235.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/154349235.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/568444132.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/568444132.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/490776123.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/490776123.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/758772906.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/758772906.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/108628077.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/108628077.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/621864945.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/621864945.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/204425024.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/204425024.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/207077316.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/207077316.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/18523968.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/18523968.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/321809132.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/321809132.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/315063449.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/315063449.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/316991694.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/316991694.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/219840973.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/219840973.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/548298519.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/548298519.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element with link name: Leads is clicked.<a href="./../reports/images/511370214.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/511370214.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :My Leads | opentaps CRM<a href="./../reports/images/495585039.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/495585039.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element with link name: Create Lead is clicked.<a href="./../reports/images/503300027.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/503300027.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :Create Lead | opentaps CRM<a href="./../reports/images/846340710.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/846340710.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: HCL entered successfully in field :createLeadForm_companyName<a href="./../reports/images/79153585.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/79153585.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element with link name: Find Leads is clicked.<a href="./../reports/images/346043495.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/346043495.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :createLeadForm_firstName<a href="./../reports/images/431339787.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/431339787.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :Find Leads | opentaps CRM<a href="./../reports/images/119033436.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/119033436.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :(//input[@name='firstName'])[3]<a href="./../reports/images/193044799.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/193044799.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: Murugesh entered successfully in field :createLeadForm_lastName<a href="./../reports/images/249215931.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/249215931.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element : //button[text()='Find Leads'] is clicked.<a href="./../reports/images/425430814.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/425430814.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: 11223344 entered successfully in field :createLeadForm_primaryPhoneNumber<a href="./../reports/images/538475923.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/538475923.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: test@hcl.com entered successfully in field :createLeadForm_primaryEmail<a href="./../reports/images/164118676.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/164118676.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The button with class Name: smallSubmit is clicked.<a href="./../reports/images/891605542.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/891605542.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/432841551.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/432841551.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The text: Ramani matches with the value :Ramani<a href="./../reports/images/195852729.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/195852729.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element : //div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a is clicked.<a href="./../reports/images/382116689.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/382116689.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/508487833.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/508487833.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element with link name: Edit is clicked.<a href="./../reports/images/604548616.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/604548616.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :opentaps CRM<a href="./../reports/images/351215576.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/351215576.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The data: Tech Mahendra entered successfully in field :updateLeadForm_companyName<a href="./../reports/images/152763628.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/152763628.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The element : (//input[@name='submitButton'])[1] is clicked.<a href="./../reports/images/51557074.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/51557074.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/541862929.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/541862929.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>16:48:06</td>
+																	<td class='step-details'>The text: Tech Mahendra (10797) contains the value :Tech Mahendra<a href="./../reports/images/810773860.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/810773860.jpg"></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='e3df7175-667e-4242-b2b1-03a82125ce16'>
+											<div class='test-head'>
+												<span class='test-name'>TC002_Edit Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>10-03-0014 17:21:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>10-03-0014 17:22:51</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 57s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and update company name in Edit Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/366363989.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/366363989.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/531073829.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/531073829.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/128907873.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/128907873.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/377606187.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/377606187.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/634858038.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/634858038.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/541768662.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/541768662.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/319914525.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/319914525.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The element with link name: Leads is clicked.<a href="./../reports/images/514566925.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/514566925.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The title of the page matches with the value :My Leads | opentaps CRM<a href="./../reports/images/270799313.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/270799313.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The element with link name: Find Leads is clicked.<a href="./../reports/images/307366574.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/307366574.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The title of the page matches with the value :Find Leads | opentaps CRM<a href="./../reports/images/740216159.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/740216159.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :(//input[@name='firstName'])[3]<a href="./../reports/images/69688211.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/69688211.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The element : //button[text()='Find Leads'] is clicked.<a href="./../reports/images/879740520.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/879740520.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The element : //div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a is clicked.<a href="./../reports/images/489003103.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/489003103.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/622031452.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/622031452.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The element with link name: Edit is clicked.<a href="./../reports/images/197561459.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/197561459.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The title of the page matches with the value :opentaps CRM<a href="./../reports/images/392420097.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/392420097.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The data: Tech Mahendra entered successfully in field :updateLeadForm_companyName<a href="./../reports/images/202464298.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/202464298.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The element : (//input[@name='submitButton'])[1] is clicked.<a href="./../reports/images/472690742.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/472690742.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/51630189.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/51630189.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:51</td>
+																	<td class='step-details'>The text: Tech Mahendra (10808) contains the value :Tech Mahendra<a href="./../reports/images/647337894.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/647337894.jpg"></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='a745e993-c285-41fc-a3a3-48fda6c6f9b1'>
+											<div class='test-head'>
+												<span class='test-name'>TC001_Create Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>10-03-0014 17:21:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>10-03-0014 17:22:42</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 48s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and Create new Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/252235347.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/252235347.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/673244235.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/673244235.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/400391234.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/400391234.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/739700077.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/739700077.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/516355563.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/516355563.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/547696597.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/547696597.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/28910128.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/28910128.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The element with link name: Create Lead is clicked.<a href="./../reports/images/612480744.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/612480744.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The title of the page matches with the value :Create Lead | opentaps CRM<a href="./../reports/images/612604730.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/612604730.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The data: HCL entered successfully in field :createLeadForm_companyName<a href="./../reports/images/188015849.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/188015849.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :createLeadForm_firstName<a href="./../reports/images/862697939.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/862697939.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The data: Murugesh entered successfully in field :createLeadForm_lastName<a href="./../reports/images/108517086.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/108517086.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The data: 11223344 entered successfully in field :createLeadForm_primaryPhoneNumber<a href="./../reports/images/91498047.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/91498047.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The data: test@hcl.com entered successfully in field :createLeadForm_primaryEmail<a href="./../reports/images/481735565.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/481735565.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The button with class Name: smallSubmit is clicked.<a href="./../reports/images/584699487.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/584699487.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/37723903.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/37723903.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:22:42</td>
+																	<td class='step-details'>The text: Ramani matches with the value :Ramani<a href="./../reports/images/568631612.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/568631612.jpg"></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='0331e4aa-c634-4da5-bed0-fa8dd07792aa'>
+											<div class='test-head'>
+												<span class='test-name'>TC002_Edit Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>14-03-0010 17:25:14</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>14-03-0010 17:25:41</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 27s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and update company name in Edit Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/468400058.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/468400058.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/750888641.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/750888641.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/504865039.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/504865039.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/211878544.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/211878544.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/421918732.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/421918732.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/590445209.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/590445209.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/521763219.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/521763219.jpg"></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5f98e000-a188-4e3d-bbda-7924f9fc3319'>
+											<div class='test-head'>
+												<span class='test-name'>TC001_Create Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>14-03-0010 17:25:14</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>14-03-0010 17:25:41</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 27s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and Create new Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/302511231.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/302511231.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/675710404.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/675710404.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/786886306.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/786886306.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/162804287.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/162804287.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/118057748.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/118057748.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/796709890.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/796709890.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/484163653.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/484163653.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The element with link name: Create Lead is clicked.<a href="./../reports/images/904251109.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/904251109.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The title of the page matches with the value :Create Lead | opentaps CRM<a href="./../reports/images/513983408.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/513983408.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: HCL entered successfully in field :createLeadForm_companyName<a href="./../reports/images/576981011.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/576981011.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :createLeadForm_firstName<a href="./../reports/images/397149002.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/397149002.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: Murugesh entered successfully in field :createLeadForm_lastName<a href="./../reports/images/212330756.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/212330756.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: 11223344 entered successfully in field :createLeadForm_primaryPhoneNumber<a href="./../reports/images/876884467.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/876884467.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The data: test@hcl.com entered successfully in field :createLeadForm_primaryEmail<a href="./../reports/images/240047902.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/240047902.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The button with class Name: smallSubmit is clicked.<a href="./../reports/images/813215059.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/813215059.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/331245305.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/331245305.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:25:41</td>
+																	<td class='step-details'>The text: Ramani matches with the value :Ramani<a href="./../reports/images/794267961.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/794267961.jpg"></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='beaf208b-5f98-4868-97c9-7435f1064697'>
+											<div class='test-head'>
+												<span class='test-name'>TC002_Edit Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>10-03-0014 17:26:53</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>10-03-0014 17:27:31</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 38s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and update company name in Edit Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/477220021.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/477220021.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/563946870.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/563946870.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/68882028.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/68882028.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/372208934.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/372208934.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/905969242.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/905969242.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/322992673.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/322992673.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/881555353.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/881555353.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The element with link name: Leads is clicked.<a href="./../reports/images/145142317.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/145142317.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The title of the page matches with the value :My Leads | opentaps CRM<a href="./../reports/images/544991357.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/544991357.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The element with link name: Find Leads is clicked.<a href="./../reports/images/225565120.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/225565120.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The title of the page matches with the value :Find Leads | opentaps CRM<a href="./../reports/images/798728983.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/798728983.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :(//input[@name='firstName'])[3]<a href="./../reports/images/176296237.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/176296237.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The element : //button[text()='Find Leads'] is clicked.<a href="./../reports/images/138917610.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/138917610.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The element : //div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a is clicked.<a href="./../reports/images/197290760.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/197290760.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/137618261.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/137618261.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The element with link name: Edit is clicked.<a href="./../reports/images/162323588.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/162323588.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The title of the page matches with the value :opentaps CRM<a href="./../reports/images/122691785.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/122691785.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The data: Tech Mahendra entered successfully in field :updateLeadForm_companyName<a href="./../reports/images/516702233.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/516702233.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The element : (//input[@name='submitButton'])[1] is clicked.<a href="./../reports/images/618124551.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/618124551.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/748212850.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/748212850.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:31</td>
+																	<td class='step-details'>The text: Tech Mahendra (10808) contains the value :Tech Mahendra<a href="./../reports/images/313685010.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/313685010.jpg"></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5f483c75-a426-49ae-be7f-44bedd9e73f9'>
+											<div class='test-head'>
+												<span class='test-name'>TC001_Create Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>10-03-0014 17:26:53</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>10-03-0014 17:27:23</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 30s+0ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and Create new Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href="./../reports/images/227821444.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/227821444.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/252532984.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/252532984.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href="./../reports/images/229192923.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/229192923.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href="./../reports/images/187431644.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/187431644.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href="./../reports/images/47038811.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/47038811.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href="./../reports/images/666832720.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/666832720.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href="./../reports/images/445837697.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/445837697.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The element with link name: Create Lead is clicked.<a href="./../reports/images/282485795.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/282485795.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The title of the page matches with the value :Create Lead | opentaps CRM<a href="./../reports/images/446503754.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/446503754.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The data: HCL entered successfully in field :createLeadForm_companyName<a href="./../reports/images/496731936.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/496731936.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :createLeadForm_firstName<a href="./../reports/images/455995699.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/455995699.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The data: Murugesh entered successfully in field :createLeadForm_lastName<a href="./../reports/images/835684163.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/835684163.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The data: 11223344 entered successfully in field :createLeadForm_primaryPhoneNumber<a href="./../reports/images/797903335.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/797903335.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The data: test@hcl.com entered successfully in field :createLeadForm_primaryEmail<a href="./../reports/images/711014705.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/711014705.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The button with class Name: smallSubmit is clicked.<a href="./../reports/images/355028092.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/355028092.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href="./../reports/images/256521830.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/256521830.jpg"></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:27:23</td>
+																	<td class='step-details'>The text: Ramani matches with the value :Ramani<a href="./../reports/images/379205305.jpg" data-featherlight="image"><img class="report-img" src="./../reports/images/379205305.jpg"></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1231be2c-922e-4612-b407-94c1760b59c8'>
+											<div class='test-head'>
+												<span class='test-name'>TC002_Edit Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>08-09-2017 17:35:07</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>08-09-2017 17:35:42</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 34s+788ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and update company name in Edit Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:16</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href='./../reports/images/258367693.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/258367693.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:16</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href='./../reports/images/595818090.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/595818090.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:17</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href='./../reports/images/590393214.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/590393214.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:18</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href='./../reports/images/239731004.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/239731004.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:19</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href='./../reports/images/45748552.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/45748552.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:19</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href='./../reports/images/710446930.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/710446930.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:24</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href='./../reports/images/829764818.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/829764818.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:27</td>
+																	<td class='step-details'>The element with link name: Leads is clicked.<a href='./../reports/images/256250219.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/256250219.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:27</td>
+																	<td class='step-details'>The title of the page matches with the value :My Leads | opentaps CRM<a href='./../reports/images/293027198.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/293027198.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:29</td>
+																	<td class='step-details'>The element with link name: Find Leads is clicked.<a href='./../reports/images/714147181.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/714147181.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:30</td>
+																	<td class='step-details'>The title of the page matches with the value :Find Leads | opentaps CRM<a href='./../reports/images/897405371.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/897405371.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:30</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :(//input[@name='firstName'])[3]<a href='./../reports/images/533150428.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/533150428.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:31</td>
+																	<td class='step-details'>The element : //button[text()='Find Leads'] is clicked.<a href='./../reports/images/883284678.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/883284678.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:36</td>
+																	<td class='step-details'>The element : //div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a is clicked.<a href='./../reports/images/325480271.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/325480271.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:36</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href='./../reports/images/214039322.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/214039322.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:38</td>
+																	<td class='step-details'>The element with link name: Edit is clicked.<a href='./../reports/images/617182468.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/617182468.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:38</td>
+																	<td class='step-details'>The title of the page matches with the value :opentaps CRM<a href='./../reports/images/400417402.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/400417402.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:39</td>
+																	<td class='step-details'>The data: Tech Mahendra entered successfully in field :updateLeadForm_companyName<a href='./../reports/images/187829635.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/187829635.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:41</td>
+																	<td class='step-details'>The element : (//input[@name='submitButton'])[1] is clicked.<a href='./../reports/images/480104465.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/480104465.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:41</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href='./../reports/images/378243093.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/378243093.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:42</td>
+																	<td class='step-details'>The text: Tech Mahendra (10808) contains the value :Tech Mahendra<a href='./../reports/images/348547330.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/348547330.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='0158a41e-dd01-4343-a0f9-ee40611c061b'>
+											<div class='test-head'>
+												<span class='test-name'>TC001_Create Lead </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  smoke'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>08-09-2017 17:35:07</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>08-09-2017 17:35:34</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 27s+158ms</span>
+												</div>
+												<div class='test-desc'>Login to LeafTaps and Create new Lead</div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>Smoke</span>
+														</div>
+														<div class='authors'>
+																<span class='author text-white'>Babu</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:16</td>
+																	<td class='step-details'>The browser:chrome launched successfully<a href='./../reports/images/896934242.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/896934242.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:16</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href='./../reports/images/242153444.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/242153444.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:17</td>
+																	<td class='step-details'>The data: DemoSalesManager entered successfully in field :username<a href='./../reports/images/883093228.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/883093228.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:18</td>
+																	<td class='step-details'>The data: crmsfa entered successfully in field :password<a href='./../reports/images/544348742.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/544348742.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:19</td>
+																	<td class='step-details'>The button with class Name: decorativeSubmit is clicked.<a href='./../reports/images/840205421.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/840205421.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:19</td>
+																	<td class='step-details'>The title of the page matches with the value :Opentaps Open Source ERP + CRM<a href='./../reports/images/252857189.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/252857189.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:24</td>
+																	<td class='step-details'>The element with link name: CRM/SFA is clicked.<a href='./../reports/images/79744784.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/79744784.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:26</td>
+																	<td class='step-details'>The element with link name: Create Lead is clicked.<a href='./../reports/images/370008599.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/370008599.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:27</td>
+																	<td class='step-details'>The title of the page matches with the value :Create Lead | opentaps CRM<a href='./../reports/images/182251452.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/182251452.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:28</td>
+																	<td class='step-details'>The data: HCL entered successfully in field :createLeadForm_companyName<a href='./../reports/images/338424251.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/338424251.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:28</td>
+																	<td class='step-details'>The data: Ramani entered successfully in field :createLeadForm_firstName<a href='./../reports/images/698164029.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/698164029.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:29</td>
+																	<td class='step-details'>The data: Murugesh entered successfully in field :createLeadForm_lastName<a href='./../reports/images/347352449.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/347352449.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:30</td>
+																	<td class='step-details'>The data: 11223344 entered successfully in field :createLeadForm_primaryPhoneNumber<a href='./../reports/images/105901292.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/105901292.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:31</td>
+																	<td class='step-details'>The data: test@hcl.com entered successfully in field :createLeadForm_primaryEmail<a href='./../reports/images/631562113.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/631562113.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:33</td>
+																	<td class='step-details'>The button with class Name: smallSubmit is clicked.<a href='./../reports/images/401856834.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/401856834.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:34</td>
+																	<td class='step-details'>The title of the page matches with the value :View Lead | opentaps CRM<a href='./../reports/images/735181772.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/735181772.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:35:34</td>
+																	<td class='step-details'>The text: Ramani matches with the value :Ramani<a href='./../reports/images/250216229.jpg' data-featherlight='image'><img class='report-img' src='./../reports/images/250216229.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id='test-details-wrapper' class='col _addedCell2'>
+					<div class='contents'>
+						<div class='card-panel details-view'>
+							<h5 class='details-name'></h5>
+							<div class='step-filters right'>
+								<span class='btn-floating btn-small waves-effect waves-light blue' status='info' alt='info' title='info'><i class='mdi-action-info-outline'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light green' status='pass' alt='pass' title='pass'><i class='mdi-action-check-circle'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red' status='fail' alt='fail' title='fail'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red darken-4' status='fatal' alt='fatal' title='fatal'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red lighten-2' status='error' alt='error' title='error'><i class='mdi-alert-error'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light orange' alt='warning' status='warning' title='warning'><i class='mdi-alert-warning'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light cyan' status='skip' alt='skip' title='skip'><i class='mdi-content-redo'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light grey darken-2' status='clear-step-filter' alt='Clear filters' title='Clear filters'><i class='mdi-content-clear'></i></span>
+							</div>
+							<div class='details-container'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /tests -->
+			
+			<!-- categories -->
+				<div id='categories-view' class='row _addedTable hide'>
+					<div class='col _addedCell1'>
+						<div class='contents'>
+							<div class='card-panel heading'>
+								<h5>Categories</h5>
+							</div>
+							<div class='card-panel filters'>
+								<div class='search' alt='Search tests' title='Search tests'>
+									<div class='input-field left'>
+										<input id='searchTests' type='text' class='validate' placeholder='Search...'>
+									</div>
+									<a href="#" class='btn-floating btn-small waves-effect waves-light blue lighten-1'>
+										<i class='mdi-action-search'></i>
+									</a>
+								</div>
+							</div>
+							<div class='card-panel no-padding-h no-padding-v'>
+								<div class='wrapper'>
+									<ul id='cat-collection' class='cat-collection'>
+											<li class='category-item displayed'>
+												<div class='cat-head'>
+													<span class='category-name'>Smoke</span>
+												</div>
+												<div class='category-status-counts'>
+														<span class='pass label dot'>Pass: 9</span>
+														<span class='other label dot'>Others: 1</span>
+												</div>
+												<div class='cat-body'>
+													<div class='category-status-counts'>
+														<div class='button-group'>
+															<a href='#!' class='pass label filter'>Pass <span class='icon'>9</span></a>
+															<a href='#!' class='fail label filter'>Fail <span class='icon'>0</span></a>
+															<a href='#!' class='other label filter'>Others <span class='icon'>1</span></a>
+														</div>
+													</div>
+													<div class='cat-tests'>
+														<table class='bordered'>
+															<thead>
+																<tr>
+																	<th>RunDate</th>
+																	<th>Test Name</th>
+																	<th>Status</th>
+																</tr>
+															</thead>
+															<tbody>
+																	<tr class='unknown'>
+																		<td>09-03-0009 16:47:43</td>
+																		<td><span class='category-link linked' extentid='db972d6c-e38f-43e6-88a0-8ab5d9536b46'>TC001_Create Lead</span></td>
+																		<td><div class='status label capitalize unknown'>unknown</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>09-03-0009 16:47:43</td>
+																		<td><span class='category-link linked' extentid='bb0c062b-87c4-4042-8a4d-d2690251c722'>TC002_Edit Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>10-03-0014 17:21:54</td>
+																		<td><span class='category-link linked' extentid='e3df7175-667e-4242-b2b1-03a82125ce16'>TC002_Edit Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>10-03-0014 17:21:54</td>
+																		<td><span class='category-link linked' extentid='a745e993-c285-41fc-a3a3-48fda6c6f9b1'>TC001_Create Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>14-03-0010 17:25:14</td>
+																		<td><span class='category-link linked' extentid='0331e4aa-c634-4da5-bed0-fa8dd07792aa'>TC002_Edit Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>14-03-0010 17:25:14</td>
+																		<td><span class='category-link linked' extentid='5f98e000-a188-4e3d-bbda-7924f9fc3319'>TC001_Create Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>10-03-0014 17:26:53</td>
+																		<td><span class='category-link linked' extentid='beaf208b-5f98-4868-97c9-7435f1064697'>TC002_Edit Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>10-03-0014 17:26:53</td>
+																		<td><span class='category-link linked' extentid='5f483c75-a426-49ae-be7f-44bedd9e73f9'>TC001_Create Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>08-09-2017 17:35:07</td>
+																		<td><span class='category-link linked' extentid='0158a41e-dd01-4343-a0f9-ee40611c061b'>TC001_Create Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>08-09-2017 17:35:07</td>
+																		<td><span class='category-link linked' extentid='1231be2c-922e-4612-b407-94c1760b59c8'>TC002_Edit Lead</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+															<tbody>
+														</table>
+													</div>
+												</div> 
+											</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id='cat-details-wrapper' class='col _addedCell2'>
+						<div class='contents'>
+							<div class='card-panel details-view'>
+								<h5 class='cat-name'></h5>
+								<div class='cat-container'>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- /categories -->
+			
+			<!-- exceptions -->
+			<!-- /exceptions -->
+			
+			<!-- testrunner logs -->
+			<!-- /testrunner logs -->
+			
+		</div>
+		<!-- /container -->
+		
+		<!-- test dashboard counts setting -->
+		<div id='test-count-setting' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Configure Tests Count Setting</h5> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodes' class='with-gap'> 
+				<label for='parentWithoutNodes'>Parent Tests Only (Does not include child nodes in counts)</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodesAndNodes' class='with-gap'> 
+				<label for='parentWithoutNodesAndNodes'>Parent Tests Without Child Tests + Child Tests</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='childNodes' class='with-gap'> 
+				<label for='childNodes'>Child Tests Only</label> 
+			</div> 
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /test dashboard counts setting -->
+		
+		<!-- filter for step status -->
+		<div id='step-status-filter' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Select status</h5> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-pass'> 
+				<label for='step-dashboard-filter-pass'>Pass</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fail'> 
+				<label for='step-dashboard-filter-fail'>Fail</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fatal'> 
+				<label for='step-dashboard-filter-fatal'>Fatal</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-error'> 
+				<label for='step-dashboard-filter-error'>Error</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-warning'> 
+				<label for='step-dashboard-filter-warning'>Warning</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-skip'> 
+				<label for='step-dashboard-filter-skip'>Skipped</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-info'> 
+				<label for='step-dashboard-filter-info'>Info</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-unknown'> 
+				<label for='step-dashboard-filter-unknown'>Unknown</label> 
+			</div>
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /filter for step status -->
+		
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.js' type='text/javascript'></script>
+
+		<script>$(document).ready(function() { $('.logo span').html('ExtentReports'); });</script>
+		<script>
+				
+      
+        $(document).ready(function() {
+          
+        });
+      
+    
+		</script>
+	</body>
+</html>
