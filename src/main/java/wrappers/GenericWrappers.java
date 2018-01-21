@@ -11,13 +11,17 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -28,6 +32,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import utils.Reporter;
 
@@ -38,10 +43,9 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		this.test=test;
 	}*/
 
-	public RemoteWebDriver driver;
+	public static RemoteWebDriver driver;
 	protected static Properties prop;
-	public String sUrl,primaryWindowHandle,sHubUrl,sHubPort,strVal;
-	public static String firstResLeadId,leadName;
+	public String sUrl,primaryWindowHandle,sHubUrl,sHubPort;
 
 	public GenericWrappers() {
 		Properties prop = new Properties();
@@ -227,13 +231,8 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		}
 		return bReturn;
 	}
-	
-	/**
-	 * This method will verify the title of the browser 
-	 * @param title - The expected title of the browser
-	 * @author Babu - TestLeaf
-	 */
-	public boolean verifyTitleContainsText(String title){
+
+	public boolean verifyTitleContains(String title){
 		boolean bReturn = false;
 		try{
 			WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -294,7 +293,7 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	 * @param id - The locator of the object in id
 	 * @param text  - The text to be verified
 	 * @author Babu - TestLeaf
-	 */
+	 *
 	public void verifyTextById(String id, String text) {
 		try{
 			String sText = driver.findElementById(id).getText();
@@ -350,42 +349,6 @@ public class GenericWrappers extends Reporter implements Wrappers {
 
 			driver.findElement(By.id(id)).click();
 			reportStep("The element with id: "+id+" is clicked.", "PASS");
-
-		}catch (NoSuchElementException e) {
-			reportStep("The element with id: "+id+" could not be clicked.", "FAIL");
-		throw new RuntimeException();
-		}
-
-		catch (Exception e) {
-			reportStep("The element with id: "+id+" could not be clicked.", "FAIL");
-		}
-	}
-	
-	public void clearById(String id) {
-		try {
-			driver.findElementById(id).clear();
-			reportStep("The value of the element with the id: "+id+" is cleared.", "PASS");
-		} catch (NoSuchElementException e) {
-			reportStep("The element with id: "+id+" could not be clicked.", "FAIL");
-		throw new RuntimeException();
-		}
-
-		catch (Exception e) {
-			reportStep("The element with id: "+id+" could not be clicked.", "FAIL");
-		}
-	}
-	
-	/**
-	 * This method will click the element using id as locator
-	 * @param id  The id (locator) of the element to be clicked
-	 * @author Babu - TestLeaf
-	 */
-	public void clickByIdNoSnap(String id) {
-		try{
-
-			driver.findElement(By.id(id)).click();
-			System.out.println("The element with id: "+id+" is clicked.");
-			//reportStep("The element with id: "+id+" is clicked.", "PASS");
 
 		}catch (NoSuchElementException e) {
 			reportStep("The element with id: "+id+" could not be clicked.", "FAIL");
@@ -459,7 +422,7 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	public void clickByXpath(String xpathVal) {
 		try{
 			driver.findElement(By.xpath(xpathVal)).click();
-			reportStep("The element : "+xpathVal+" is clicked.", "PASS");
+			//reportStep("The element : "+xpathVal+" is clicked.", "PASS");
 		} catch (Exception e) {
 			reportStep("The element with xpath: "+xpathVal+" could not be clicked.", "FAIL");
 		}
@@ -468,7 +431,7 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	public void clickByXpathNoSnap(String xpathVal) {
 		try{
 			driver.findElement(By.xpath(xpathVal)).click();
-			System.out.println("The element : "+xpathVal+" is clicked.");
+			System.out.println("1st Lead clicked");
 			//reportStep("The element : "+xpathVal+" is clicked.", "PASS");
 		} catch (WebDriverException e) {
 			reportStep("The element with xpath: "+xpathVal+" could not be clicked.", "FAIL");
@@ -560,12 +523,13 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		}
 	}
 
-	public void selectIndexById(String id, String value) {
+	public void selectIndexById(String id, String index) {
 		try{
-			new Select(driver.findElement(By.id(id))).selectByIndex(Integer.parseInt(value));;
-			reportStep("The element with id: "+id+" is selected with index :"+value, "PASS");
+       new Select(driver.findElement(By.id(id))).selectByIndex(Integer.parseInt(id));
+			
+			reportStep("The element with id: "+id+" is selected with index :"+index, "PASS");
 		} catch (Exception e) {
-			reportStep("The index: "+value+" could not be selected.", "FAIL");
+			reportStep("The index: "+index+" could not be selected.", "FAIL");
 		}
 	}
 
@@ -582,15 +546,14 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	}
 
 	public void switchToLastWindow() {
-		int i=0;
-		try {			
+		try {
 			Set<String> winHandles = driver.getWindowHandles();
+			System.out.println(winHandles.size());
+			System.out.println(driver.getCurrentUrl());
+			System.out.println(driver.getTitle());
 			for (String wHandle : winHandles) {
-				i=i+1;
-				if (i==2){
-					System.out.println("Inside If");
-					driver.switchTo().window(wHandle);
-				}
+				driver.switchTo().window(wHandle);
+				System.out.println("The control is now in window :"+wHandle);
 			}
 		} catch (Exception e) {
 			reportStep("The window could not be switched to the last window.", "FAIL");
@@ -612,7 +575,7 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	public String getAlertText() {		
 		String text = null;
 		try {
-			text = driver.switchTo().alert().getText();
+			text =driver.switchTo().alert().getText();
 		} catch (NoAlertPresentException e) {
 			reportStep("The alert could not be found.", "FAIL");
 		} catch (Exception e) {
@@ -652,55 +615,116 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	public void switchFrame(String name){
 		driver.switchTo().frame(name);
 	}
-
-	public String getAttributeValueById(String idVal, String Attribute) {
-		try {
-			strVal = driver.findElementById(idVal).getAttribute(Attribute);
-			/*System.out.println("The text of the element with the id "+idVal+" is "+strVal);*/
-			reportStep("The text of the element with the id "+idVal+" is "+strVal, "PASS");					
-		} catch (Exception e) {
-			reportStep("The element with the id "+idVal+" could not be found.", "FAIL");
-		}
-		return strVal;
-	}
 	
-	public void enterByIdAndTabKey(String idValue, String data) {
+	public void enterByIdTab(String idValue, String data) {
 		try {
 			driver.findElementById(idValue).clear();
 			driver.findElementById(idValue).sendKeys(data,Keys.TAB);
-			/*System.out.println("Entered the value " + data + " for the text field with the id " + idValue +" and pressed TAB");*/
-			reportStep("The data: "+data+" entered successfully in field :"+idValue, "PASS");
 		} catch (NoSuchElementException e) {
-			reportStep("The data: "+data+" could not be entered in the field :"+idValue, "FAIL");
-			throw new RuntimeException();
-		}
-		catch (WebDriverException e) {
-			reportStep("Unknown exception occured while entering "+data+" in the field :"+idValue, "FAIL");
-		}
-		catch (Exception e) {
-			reportStep("Unknown exception occured while entering "+data+" in the field :"+idValue, "FAIL");
+			//log("FAIL","enterByIdTab","The field "+idValue+ "does not exist");
+			//System.err.println("The field "+idValue+ "does not exist");
+			//throw new RuntimeException();
+
+		}catch (WebDriverException e){
+			//log("FAIL","enterByIdTab","The driver does not exist");
+			//System.err.println("The driver does not exist");
+		}finally {					
+			takeSnap();
 		}
 		
 	}
-	
-	public void enterByXpathAndEnterKey(String xpathValue, String data) {
-		try {
-			driver.findElementByXPath(xpathValue).clear();
-			driver.findElementByXPath(xpathValue).sendKeys(data,Keys.ENTER);
-			reportStep("The data: "+data+" entered successfully in field with the XPath :"+xpathValue, "PASS");
-			/*System.out.println("Entered the value " + data + " for the text field with the XPath " + xpathValue+" and pressed ENTER");*/
-		} catch (NoSuchElementException e) {
-			/*System.err.println("The text field with the XPath "+xpathValue+" is not found");*/
-			reportStep("The data: "+data+" could not be entered in the field :"+xpathValue, "FAIL");
-			throw new RuntimeException();
-		} catch (WebDriverException e){
-			/*System.err.println("The browser has closed or some other unknown exception");*/
-			reportStep("Unknown exception occured while entering "+data+" in the field :"+xpathValue, "FAIL");
-		} 
-		catch (Exception e) {
-			reportStep("Unknown exception occured while entering "+data+" in the field :"+xpathValue, "FAIL");
-		}
 
+	String txt;
+	public String getAttributeById(String idVal) {
+		try {
+			txt = driver.findElementById(idVal).getAttribute("value");
+			System.out.println("The text is : "+txt);		
+
+		} catch (ElementNotVisibleException e){
+			System.err.println("The field "+idVal+ "is not visible");
+			//throw new RuntimeException();
+
+		}catch (StaleElementReferenceException e){
+			System.err.println("The field "+idVal+ "is not present");
+			//throw new RuntimeException();
+		}
+		catch (WebDriverException e){
+			System.err.println("The driver does not exist");
+		}finally {					
+			takeSnap();
+		}
+		return txt;
+	}
+	public void enterByXpathTabEnter(String idValue, String data) {
+		try {
+			driver.findElementByXPath(idValue).clear();
+			driver.findElementByXPath(idValue).sendKeys(data,Keys.ENTER);
+		} catch (NoSuchElementException e) {
+			test.log(LogStatus.FAIL,"enterbyXPathTabEnter","The field "+idValue+ "does not exist");
+			//System.err.println("The field "+idValue+ "does not exist");
+			//throw new RuntimeException();
+
+		}catch (WebDriverException e){
+			test.log(LogStatus.FAIL,"enterbyXPathTabEnter","The driver does not exist");
+			//System.err.println("The driver does not exist");
+		}finally {					
+			takeSnap();
+		}
+	}
+
+	public void verifyTextEqualsByXPath(String xpath, String text) {
+		try {
+			String txt = driver.findElementByXPath(xpath).getText();
+			System.out.println(txt);
+			if(txt.equals(text)){
+				System.out.println("The text appears on the screen is :"+text);
+			}
+			else
+				System.out.println("The text doesn't match");
+		} catch (NoSuchElementException e) {
+			System.err.println("The field "+text+ "does not exist");
+			//throw new RuntimeException();
+
+		}catch (WebDriverException e){
+			System.err.println("The driver does not exist");
+		}finally {					
+			takeSnap();
+		}
 	}
 	
+	public void switchToLastPopWindow() {
+		try {
+			Set<String> allWindows = driver.getWindowHandles();
+			System.out.println(allWindows.size());
+			System.out.println(driver.getCurrentUrl());
+			System.out.println(driver.getTitle());
+			int i=0;
+			for (String eachWindow : allWindows) {
+				if(i==0){
+					System.out.println("Control is now in the window "+i);
+					System.out.println(driver.getTitle());
+					i++;
+				}
+				else{
+					System.out.println("Control is now in the last window "+i);
+					driver.switchTo().window(eachWindow);
+					System.out.println(driver.getTitle());
+				}
+			}
+
+		} catch (NoSuchWindowException e) {
+			System.err.println("The last window doesn't exist");
+		} catch (WebDriverException e){
+			System.err.println("The driver doesn't present");
+		}finally{
+			takeSnap();
+		}
+	}
+
+	@Override
+	public void verifyTextById(String id, String text) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

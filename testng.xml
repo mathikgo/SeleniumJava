@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="classes" name="Suite">
-  <test name="Test">
-    <classes>
-      <class name="leadstests.TC001_CreateLead"/>
-      <class name="leadstests.TC002_EditLead"/>
-    </classes>
+<suite name="Suite">
+  <test thread-count="5" name="Test">
   </test> <!-- Test -->
 </suite> <!-- Suite -->

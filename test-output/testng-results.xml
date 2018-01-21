@@ -1,122 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
-  <reporter-output>
-  </reporter-output>
-  <suite name="Suite" duration-ms="30013" started-at="2017-09-03T11:17:42Z" finished-at="2017-09-03T11:18:12Z">
-    <groups>
-    </groups>
-    <test name="Test" duration-ms="30013" started-at="2017-09-03T11:17:42Z" finished-at="2017-09-03T11:18:12Z">
-      <class name="leadstests.TC002_EditLead">
-        <test-method status="PASS" signature="setvalues()[pri:0, instance:leadstests.TC002_EditLead@1f70c54]" name="setvalues" is-config="true" duration-ms="0" started-at="2017-09-03T16:47:42Z" finished-at="2017-09-03T16:47:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setvalues -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:leadstests.TC002_EditLead@1f70c54]" name="beforeMethod" is-config="true" duration-ms="6400" started-at="2017-09-03T16:47:43Z" finished-at="2017-09-03T16:47:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="createLead(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:leadstests.TC002_EditLead@1f70c54]" name="createLead" duration-ms="21761" started-at="2017-09-03T16:47:50Z" data-provider="fetchData" finished-at="2017-09-03T16:48:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[DemoSalesManager]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[crmsfa]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Ramani]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Tech Mahendra]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createLead -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:leadstests.TC002_EditLead@1f70c54]" name="afterMethod" is-config="true" duration-ms="984" started-at="2017-09-03T16:48:11Z" finished-at="2017-09-03T16:48:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- leadstests.TC002_EditLead -->
-      <class name="leadstests.TC001_CreateLead">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="beforeSuite" is-config="true" duration-ms="363" started-at="2017-09-03T16:47:42Z" finished-at="2017-09-03T16:47:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="beforeTest" is-config="true" duration-ms="1" started-at="2017-09-03T16:47:42Z" finished-at="2017-09-03T16:47:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="setvalues()[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="setvalues" is-config="true" duration-ms="0" started-at="2017-09-03T16:47:42Z" finished-at="2017-09-03T16:47:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setvalues -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="beforeMethod" is-config="true" duration-ms="6499" started-at="2017-09-03T16:47:43Z" finished-at="2017-09-03T16:47:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="createLead(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="createLead" duration-ms="16165" started-at="2017-09-03T16:47:50Z" data-provider="fetchData" finished-at="2017-09-03T16:48:06Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[DemoSalesManager]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[crmsfa]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[HCL]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Ramani]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Murugesh]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[11223344]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[test@hcl.com]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createLead -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="afterMethod" is-config="true" duration-ms="1368" started-at="2017-09-03T16:48:06Z" finished-at="2017-09-03T16:48:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-09-03T16:48:12Z" finished-at="2017-09-03T16:48:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:leadstests.TC001_CreateLead@96442d]" name="afterSuite" is-config="true" duration-ms="363" started-at="2017-09-03T16:48:13Z" finished-at="2017-09-03T16:48:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterSuite -->
-      </class> <!-- leadstests.TC001_CreateLead -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+<testng-results skipped="0" failed="0" total="0" passed="0">
+	<reporter-output>
+	</reporter-output>
+	<suite name="Default suite" duration-ms="13" started-at="2018-01-20T04:02:48Z"
+		finished-at="2018-01-20T04:02:48Z">
+		<groups>
+		</groups>
+		<test name="Default test" duration-ms="13" started-at="2018-01-20T04:02:48Z"
+			finished-at="2018-01-20T04:02:48Z">
+			<class name="amazonpages.HomeAmazon">
+				<test-method status="FAIL"
+					signature="beforeSuite()[pri:0, instance:null]" name="beforeSuite"
+					is-config="true" duration-ms="0" started-at="2018-01-20T15:02:48Z"
+					finished-at="2018-01-20T15:02:48Z">
+					<exception class="java.lang.NullPointerException">
+						<full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:182)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+						</full-stacktrace>
+					</exception> <!-- java.lang.NullPointerException -->
+					<reporter-output>
+					</reporter-output>
+				</test-method> <!-- beforeSuite -->
+				<test-method status="FAIL" signature="afterTest()[pri:0, instance:null]"
+					name="afterTest" is-config="true" duration-ms="0"
+					started-at="2018-01-20T15:02:48Z" finished-at="2018-01-20T15:02:48Z">
+					<exception class="java.lang.NullPointerException">
+						<full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:182)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.TestRunner.afterRun(TestRunner.java:1012)
+	at org.testng.TestRunner.run(TestRunner.java:636)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+						</full-stacktrace>
+					</exception> <!-- java.lang.NullPointerException -->
+					<reporter-output>
+					</reporter-output>
+				</test-method> <!-- afterTest -->
+				<test-method status="FAIL" signature="afterSuite()[pri:0, instance:null]"
+					name="afterSuite" is-config="true" duration-ms="0"
+					started-at="2018-01-20T15:02:48Z" finished-at="2018-01-20T15:02:48Z">
+					<exception class="java.lang.NullPointerException">
+						<full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:182)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:336)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+						</full-stacktrace>
+					</exception> <!-- java.lang.NullPointerException -->
+					<reporter-output>
+					</reporter-output>
+				</test-method> <!-- afterSuite -->
+			</class> <!-- amazonpages.HomeAmazon -->
+		</test> <!-- Default test -->
+	</suite> <!-- Default suite -->
 </testng-results>

@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
 
 import utils.DataInputProvider;
 
-public class LeafTapsWrappers extends GenericWrappers {
+public class amazonWrappers extends GenericWrappers {
 	
 	public String browserName;
 	public String dataSheetName;
@@ -20,10 +20,10 @@ public class LeafTapsWrappers extends GenericWrappers {
 		startResult();
 	}
 
-	@BeforeTest
-	public void beforeTest(){
-		loadObjects();
-	}
+//	@BeforeTest
+//	public void beforeTest(){
+//		loadObjects();
+//	}
 	
 	@BeforeMethod
 	public void beforeMethod(){
